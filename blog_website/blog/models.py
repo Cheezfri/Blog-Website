@@ -8,3 +8,6 @@ class Post(models.Model):
     content = models.TextField(max_length=100)  # textfield Unrestricted text
     date_posted = models.DateTimeField(default=timezone.now)  # No parenthesis so function isn't executed but passed in
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # If user is deleted, all posts are deleted with CAS
+
+    def __str__(self):  # Dunder method that overwrites default to return title instead
+        return self.title
